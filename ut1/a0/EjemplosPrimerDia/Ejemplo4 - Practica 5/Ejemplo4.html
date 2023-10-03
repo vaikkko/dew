@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <p id="mytxt">Aprende JavaScript con MyFPSchool!</p>
-        <button type="button" onclick="myFunction()">¡Dale!</button>
+        <p id="mytxt">¿En que idioma quieres la página?</p>
+        <button type="button" onclick="en()">Ingles</button>
+        <button type="button" onclick="es()">Español</button>
+        <button type="button" onclick="fr()">Frances</button>
+
         <script>
-            function myFunction() {
-            var x = document.getElementById("mytxt");
-            x.style.fontSize = "25px";
-            x.style.color = "red";
+            function es(){
+                alert('Bienvenido')
+                console.log('Idioma escogido: Español')
             }
+            
+            function en(){
+                alert('Welcome')
+                console.log('Idioma escogido: Ingles')
+            }
+            function fr(){
+                alert('Accueillir')
+                console.log('Idioma escogido: Francés')
+            }
+
 </script>
     </body>
 </html>
