@@ -20,15 +20,15 @@
 
 3. **Actividad**: ¿Qué valor producirán las siguientes expresiones?
 
-    a. parseInt("15");
-    b. parseInt("15.5")
-    c. parseInt(15.5)
-    d. parseInt("true")
-    e. parseInt(true)
-    f. parseInt("Pedro")
-    g. parseInt(15 + "Pedro")
-    h. parseFloat("15.5")
-    i. parseFloat(15.5)
+    - parseInt("15");
+    - parseInt("15.5")
+    - parseInt(15.5)
+    - parseInt("true")
+    - parseInt(true)
+    - parseInt("Pedro")
+    - parseInt(15 + "Pedro")
+    - parseFloat("15.5")
+    - parseFloat(15.5)
 
 4. **Actividad**: Observa el siguiente código. a) ¿La variable nombre se define de modo local o global? b) Copia y ejecuta el código para probar su funcionalidad. En caso de no funcionar cámbialo para solucionar el problema.
 
