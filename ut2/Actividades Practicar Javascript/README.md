@@ -7,16 +7,16 @@
 
 2. **Actividad**:Indica el valor que generan las siguientes expresiones y el tipo de datos de los mismos (emplea para ello la función typeof()):
 
-    a. 2 > 3 +2 = 
-    b. 1 + false +3.5 = 
-    c. 4 * true + 2 = 
-    d. 5 / 0 = 
-    e. 10 > 2 > 0 = 
-    f. 15 < 3 * 10 = 
-    g. 3 * hola + 2 = 
-    h. 5 / “hola” = 
-    i. π * 32 = 
-    k. “Tienes” + 23 + “años” = 
+    - 2 > 3 +2 = 
+    - 1 + false +3.5 = 
+    - 4 * true + 2 = 
+    - 5 / 0 = 
+    - 10 > 2 > 0 = 
+    - 15 < 3 * 10 = 
+    - 3 * hola + 2 = 
+    - 5 / “hola” = 
+    - π * 32 = 
+    - “Tienes” + 23 + “años” = 
 
 3. **Actividad**: ¿Qué valor producirán las siguientes expresiones?
 
