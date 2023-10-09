@@ -7,30 +7,32 @@
 
 2. **Actividad**:Indica el valor que generan las siguientes expresiones y el tipo de datos de los mismos (emplea para ello la función typeof()):
 
-    - 2 > 3 +2 = 
-    - 1 + false +3.5 = 
-    - 4 * true + 2 = 
-    - 5 / 0 = 
-    - 10 > 2 > 0 = 
-    - 15 < 3 * 10 = 
-    - 3 * hola + 2 = 
-    - 5 / “hola” = 
-    - π * 32 = 
-    - “Tienes” + 23 + “años” = 
+    - 2 > 3 +2 = false ; typeof(2>3+2) = "bollean"
+    - 1 + false +3.5 = 4.5 ; typeof(1 + false + 3.5) = "false"
+    - 4 * true + 2 = 6 ; typeof(4 * true + 2 ) = "number"
+    - 5 / 0 = Infinity ; typeof(5/0) = "number"
+    - 10 > 2 > 0 = false ; typeof(10>2<0) = "boolean"
+    - 15 < 3 * 10 = true ; typeof(15 < 3 * 10) = "boolean"
+    - 3 * hola + 2 = ReferenceError: hola is not defined
+    - 5 / “hola” = SyntaxError: illegal character: illegal character 
+    - π * 32 = ReferenceError: π is not defined 
+    - “Tienes” + 23 + “años” = SyntaxError: illegal character
 
 3. **Actividad**: ¿Qué valor producirán las siguientes expresiones?
 
-    - parseInt("15");
-    - parseInt("15.5")
-    - parseInt(15.5)
-    - parseInt("true")
-    - parseInt(true)
-    - parseInt("Pedro")
-    - parseInt(15 + "Pedro")
-    - parseFloat("15.5")
-    - parseFloat(15.5)
+    - parseInt("15"); 15
+    - parseInt("15.5") 15
+    - parseInt(15.5) 15
+    - parseInt("true") NaN
+    - parseInt(true) NaN
+    - parseInt("Pedro") NaN
+    - parseInt(15 + "Pedro") 15
+    - parseFloat("15.5") 15.5
+    - parseFloat(15.5) 15.5 
 
-4. **Actividad**: Observa el siguiente código. a) ¿La variable nombre se define de modo local o global? b) Copia y ejecuta el código para probar su funcionalidad. En caso de no funcionar cámbialo para solucionar el problema.
+4. **Actividad**: Observa el siguiente código. 
+-  ¿La variable nombre se define de modo local o global? Local, al encontrarse dentro de la función.
+-  Copia y ejecuta el código para probar su funcionalidad. En caso de no funcionar cámbialo para solucionar el problema.
 
     ```js
     <script>
