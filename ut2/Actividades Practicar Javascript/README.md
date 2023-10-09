@@ -9,13 +9,13 @@
 
     - 2 > 3 +2 = **false ; typeof(2>3+2) = "bollean"**
     - 1 + false +3.5 = **4.5 ; typeof(1 + false + 3.5) = "false"**
-    - 4 * true + 2 = 6 ; **typeof(4 * true + 2 ) = "number"**
-    - 5 / 0 = Infinity ; **typeof(5/0) = "number"**
-    - 10 > 2 > 0 = false ; **typeof(10>2<0) = "boolean"**
-    - 15 < 3 * 10 = true ; **typeof(15 < 3 * 10) = "boolean"**
-    - 3 * hola + 2 = ReferenceError: **hola is not defined**
-    - 5 / “hola” = SyntaxError: **illegal character: illegal character**
-    - π * 32 = ReferenceError: **π is not defined** 
+    - 4 * true + 2 = **6 ; typeof(4 * true + 2 ) = "number"**
+    - 5 / 0 = **Infinity ; typeof(5/0) = "number"**
+    - 10 > 2 > 0 = **false ; typeof(10>2<0) = "boolean"**
+    - 15 < 3 * 10 = **true ; typeof(15 < 3 * 10) = "boolean"**
+    - 3 * hola + 2 = **ReferenceError: hola is not defined**
+    - 5 / “hola” = **SyntaxError: **illegal character: illegal character**
+    - π * 32 = **ReferenceError: π is not defined** 
     - “Tienes” + 23 + “años” = **SyntaxError: illegal character**
 
 3. **Actividad**: ¿Qué valor producirán las siguientes expresiones?
