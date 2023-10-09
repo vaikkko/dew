@@ -44,14 +44,14 @@
     ```
 5. **Actividad**: ¿Qué valor se obtendrá al ejecutar estas expresiones?
 
-    a. 16 << 2
-    b. 8 > 10 ? v1 = “sí” : v1 = “no”
-    c. var n=7; alert(“n vale “ + (++n));
-    d. var m=17; alert("m vale " + (m++)); alert(m);
-    e. 3 ^ 2
-    f. var y=17; y%=5;
-    g. var caja = ["percha", "balón"]; alert(caja[1]);
-    h. var a=3,b=6; var h = a > b ? a : b;
+    -  16 << 2
+    -  8 > 10 ? v1 = “sí” : v1 = “no”
+    -  var n=7; alert(“n vale “ + (++n));
+    -  var m=17; alert("m vale " + (m++)); alert(m);
+    -  3 ^ 2
+    -  var y=17; y%=5;
+    -  var caja = ["percha", "balón"]; alert(caja[1]);
+    -  var a=3,b=6; var h = a > b ? a : b;
 
 6. Observa el siguiente código:
 ```js
@@ -63,11 +63,97 @@ var arr=[1,2,3,4];
    console.log(arr[i]);
   } 
   ```
-a) ¿Muestran la misma información el primer y el segundo bucle?
-b) ¿Cuál es la diferencia entre los mismos?
-c) ¿Existe diferencia entre ++i e i++?
-d) ¿Qué muestra el siguiente código: 
+-  ¿Muestran la misma información el primer y el segundo bucle?
+-  ¿Cuál es la diferencia entre los mismos?
+-  ¿Existe diferencia entre ++i e i++?
+-  ¿Qué muestra el siguiente código: 
 
 ```js
 arr.forEach(function(i){console.log(i)}); 
 ```
+- ¿Y el siguiente?
+```js
+ for (i of arr) {
+  console.log(i);
+ }
+ ```
+
+ 7. **Actividad**: Realiza un programa en JavaScript que calcule el área y el perímetro de una circunferencia de radio 5 m. A continuación, modifica dicho código para que el usuario pueda introducir el radio. Recuerda que para seleccionar un elemento desde HTML debes usar la instancia document.getElementById(""). Algunas funciones predefinidas necesarias/útiles para esta tarea son:
+
+    - document.getElementById('').value: devuelve el valor de un elemento HTML.
+    - parseFloat()
+    - Math.PI: devuelve el número real pi.
+    - El modificador .innerHTML que permite seleccionar un elemento HTML y modificar su contenido.
+    - toFixed(): permite redondear a un determinado número de decimales.
+
+8. **Activida**:  JavaScript puede manejar los eventos de una página web para conocer, por ejemplo, cuando el ratón pasa sobre un elemento. Aquí tienes un código que sirve de ejemplo para los siguientes eventos: onmouseover, onmouseout, onblur. Cópialo y ejecútalo para analizar su función:
+
+```js
+        <h1>Ejemplo de Eventos onmouseover, onmouseout y onblur.</h1>
+            <div id="miDiv" onmouseover="mostrarMensaje('Mouse sobre el div')" onmouseout="mostrarMensaje('Mouse fuera del div')">
+            <p>¡Pasa el mouse sobre este div!</p>
+                
+            <input type="text" onblur="mostrarMensaje('El campo de texto ha perdido el foco')" placeholder="Escribe algo y luego haz clic fuera">
+            </div>
+            <p id="mensaje"></p>
+            <script>
+            function mostrarMensaje(mensaje) {
+            document.getElementById('mensaje').innerHTML = mensaje;
+            }
+            </script>
+```
+
+9. **Actividad**: Crea una página HTML que permita al usuario calcular una propina según el total de la factura a pagar. Esta web debe permitir al usuario introducir el monto total de la factura; seleccionar un porcentaje de propina a pagar (10, 15 0 20%) y obtener en pantalla el valor de la propina.
+
+10. **Actividad**: Observa y analiza la función del siguiente código. A continuación modifica el código para que sea el usuario el que escoja el número de filas del rombo.
+
+```js
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Rombo de emoticonos</title>
+        </head>
+        <body>
+
+            <div id="rombo" style="text-align: center"></div>
+            
+            <script>
+                    function dibujarRombo(filas) {
+                        
+                        let output = '';
+                        
+                        //Parte creciente del rombo:
+                        for (let i = 1; i <= filas; i++){
+                            let linea = '';
+                            for (let j = 1; j <= 2 * i - 1; j++) {
+                                linea += '*';
+                            }
+                            output += linea + '<br>';
+                        }
+                        
+                        //Parte decreciente del rombo:
+                        for (let i = filas - 1; i >= 1; i--) {
+                            let linea = '';
+                            for (let j = 1; j <= 2 * i - 1; j++) {
+                                linea += '*';
+                            }
+                            output += linea + '<br>';
+                        }
+                        document.getElementById('rombo').innerHTML = output;
+                    }
+                    dibujarRombo(15); //Ejecutamos la función.    
+            </script>
+        </body>
+        </html>
+
+```
+
+11. **Actividad**: Crea una web sencilla que permita al usuario introducir un número de entrada y obtener todos los divisores del mismo. Para ello, algunas funciones a tener en cuenta además de las vistas anteriormente son:
+- parseInt()
+- %: devuelve el módulo o resto de una división.
+
+12. **Actividad**:  Basándote en la actividad anterior, crea una web que permita al usuario obtener un determinado número de valores ordenados de la sucesión de Fibonacci (La matemática incrustada en la inmensa variedad de formas de vida)  en la que cada término se obtiene como suma de los dos anteriores:
+
+            0, 1, 1, 2, 3, 5, 8, 13...
+
+Un modificador de utilidad para esta tarea es el ".push()", el cual permite añadir nuevos elementos a un array cualquiera previamente definido.
