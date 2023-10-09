@@ -46,14 +46,14 @@
     ```
 5. **Actividad**: ¿Qué valor se obtendrá al ejecutar estas expresiones?
 
-    -  16 << 2
+    -  16 << 2  = 64
     -  8 > 10 ? v1 = “sí” : v1 = “no”
-    -  var n=7; alert(“n vale “ + (++n));
-    -  var m=17; alert("m vale " + (m++)); alert(m);
-    -  3 ^ 2
+    -  var n=7; alert(“n vale “ + (++n)); = yntaxError: unexpected token: identifier
+    -  var m=17; alert("m vale " + (m++)); alert(m); = Alerta mensaje = "m vale 17" + Alerta mensaje = "18"
+    -  3 ^ 2 = 1
     -  var y=17; y%=5;
-    -  var caja = ["percha", "balón"]; alert(caja[1]);
-    -  var a=3,b=6; var h = a > b ? a : b;
+    -  var caja = ["percha", "balón"]; alert(caja[1]); = Alerta mensaje : "balón"
+    -  var a=3,b=6; var h = a > b ? a : b; = undefined
 
 6. Observa el siguiente código:
 ```js
@@ -65,9 +65,10 @@ var arr=[1,2,3,4];
    console.log(arr[i]);
   } 
   ```
--  ¿Muestran la misma información el primer y el segundo bucle?
+-  ¿Muestran la misma información el primer y el segundo bucle? SI
 -  ¿Cuál es la diferencia entre los mismos?
 -  ¿Existe diferencia entre ++i e i++?
+<br>
 -  ¿Qué muestra el siguiente código: 
 
 ```js
