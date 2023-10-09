@@ -7,31 +7,31 @@
 
 2. **Actividad**:Indica el valor que generan las siguientes expresiones y el tipo de datos de los mismos (emplea para ello la función typeof()):
 
-    - 2 > 3 +2 = false ; typeof(2>3+2) = "bollean"
-    - 1 + false +3.5 = 4.5 ; typeof(1 + false + 3.5) = "false"
-    - 4 * true + 2 = 6 ; typeof(4 * true + 2 ) = "number"
-    - 5 / 0 = Infinity ; typeof(5/0) = "number"
-    - 10 > 2 > 0 = false ; typeof(10>2<0) = "boolean"
-    - 15 < 3 * 10 = true ; typeof(15 < 3 * 10) = "boolean"
-    - 3 * hola + 2 = ReferenceError: hola is not defined
-    - 5 / “hola” = SyntaxError: illegal character: illegal character 
-    - π * 32 = ReferenceError: π is not defined 
-    - “Tienes” + 23 + “años” = SyntaxError: illegal character
+    - 2 > 3 +2 = **false ; typeof(2>3+2) = "bollean"**
+    - 1 + false +3.5 = **4.5 ; typeof(1 + false + 3.5) = "false"**
+    - 4 * true + 2 = 6 ; **typeof(4 * true + 2 ) = "number"**
+    - 5 / 0 = Infinity ; **typeof(5/0) = "number"**
+    - 10 > 2 > 0 = false ; **typeof(10>2<0) = "boolean"**
+    - 15 < 3 * 10 = true ; **typeof(15 < 3 * 10) = "boolean"**
+    - 3 * hola + 2 = ReferenceError: **hola is not defined**
+    - 5 / “hola” = SyntaxError: **illegal character: illegal character**
+    - π * 32 = ReferenceError: **π is not defined** 
+    - “Tienes” + 23 + “años” = **SyntaxError: illegal character**
 
 3. **Actividad**: ¿Qué valor producirán las siguientes expresiones?
 
-    - parseInt("15"); 15
-    - parseInt("15.5") 15
-    - parseInt(15.5) 15
-    - parseInt("true") NaN
-    - parseInt(true) NaN
-    - parseInt("Pedro") NaN
-    - parseInt(15 + "Pedro") 15
-    - parseFloat("15.5") 15.5
-    - parseFloat(15.5) 15.5 
+    - parseInt("15"); **15**
+    - parseInt("15.5") **15**
+    - parseInt(15.5) **15**
+    - parseInt("true") **NaN**
+    - parseInt(true) **NaN**
+    - parseInt("Pedro") **NaN**
+    - parseInt(15 + "Pedro") **15**
+    - parseFloat("15.5") **15.5**
+    - parseFloat(15.5) **15.5** 
 
 4. **Actividad**: Observa el siguiente código. 
--  ¿La variable nombre se define de modo local o global? Local, al encontrarse dentro de la función.
+-  ¿La variable nombre se define de modo local o global? **Local, al encontrarse dentro de la función.**
 -  Copia y ejecuta el código para probar su funcionalidad. En caso de no funcionar cámbialo para solucionar el problema.
 
     ```js
@@ -46,14 +46,14 @@
     ```
 5. **Actividad**: ¿Qué valor se obtendrá al ejecutar estas expresiones?
 
-    -  16 << 2  = 64
-    -  8 > 10 ? v1 = “sí” : v1 = “no”
-    -  var n=7; alert(“n vale “ + (++n)); = yntaxError: unexpected token: identifier
-    -  var m=17; alert("m vale " + (m++)); alert(m); = Alerta mensaje = "m vale 17" + Alerta mensaje = "18"
-    -  3 ^ 2 = 1
+    -  16 << 2  = **64**
+    -  8 > 10 ? v1 = “sí” : v1 = **“no”**
+    -  var n=7; alert(“n vale “ + (++n)); = **yntaxError: unexpected token: identifier**
+    -  var m=17; alert("m vale " + (m++)); alert(m); = **Alerta mensaje = "m vale 17" + Alerta mensaje = "18"**
+    -  3 ^ 2 = **1**
     -  var y=17; y%=5;
-    -  var caja = ["percha", "balón"]; alert(caja[1]); = Alerta mensaje : "balón"
-    -  var a=3,b=6; var h = a > b ? a : b; = undefined
+    -  var caja = ["percha", "balón"]; alert(caja[1]); = **Alerta mensaje : "balón"**
+    -  var a=3,b=6; var h = a > b ? a : b; = **undefined**
 
 6. Observa el siguiente código:
 ```js
@@ -65,7 +65,7 @@ var arr=[1,2,3,4];
    console.log(arr[i]);
   } 
   ```
--  ¿Muestran la misma información el primer y el segundo bucle? SI
+-  ¿Muestran la misma información el primer y el segundo bucle? **SI**
 -  ¿Cuál es la diferencia entre los mismos?
 -  ¿Existe diferencia entre ++i e i++?
 <br>
