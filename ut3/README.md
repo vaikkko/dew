@@ -18,7 +18,7 @@ Una vez validador el formulario los resultados se mostrarán en la ventana princ
 **Actividad 7.** Crea una web que permita al usuario establecer una fecha y hora para una cuenta atrás.
 **Actividad 8.** Analiza los siguientes códigos. A continuación, programa tu propio generador de historias aleatorias:
 
-    
+```html   
     <!DOCTYPE html>
     <html lang="es" dir="ltr">
     <head>
@@ -46,11 +46,11 @@ Una vez validador el formulario los resultados se mostrarán en la ventana princ
     </body>
 
     </html>
-    
+```    
 
 **Archivo de script:**
 
-        ```js
+```js   
         var texto = document.getElementById('texto');
         var button = document.getElementById('btnSubmit');
 
@@ -118,4 +118,4 @@ Una vez validador el formulario los resultados se mostrarán en la ventana princ
         }
         }
         }
-        ```
+```   
