@@ -1,3 +1,7 @@
+# Actividades Prácticas Unidad Didáctica 3
+### Unidad de Trabajo 3: 
+
+
 **Actividad 1.**  Programar una página web que permita al usuario abrir una     subventana con un formulario de registro que una vez confirmado imprima los datos en la ventana principal. La aplicación debe hacer lo siguiente:
 
 Redirigir al usuario a una nueva ventana después de haber pulsado un botón.
