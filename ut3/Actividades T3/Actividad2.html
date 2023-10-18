@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 2 T3</title>
+</head>
+<body>
+    <h1>DEW</h1>
+    <p>Clase interesante</p>
+
+    <button id="BotonCambiarTitulo">Cambia el titulo</button>
+    
+    <script>
+      function cambiaTitulo() {
+        let nuevoTitulo = prompt("Escribe el nuevo titulo:");
+
+        if (nuevoTitulo !== null && nuevoTitulo.trim() !== "") {
+          document.title = nuevoTitulo;
+        }
+      }
+      document
+        .getElementById("BotonCambiarTitulo")
+        .addEventListener("click", cambiaTitulo);
+    </script>
+</body>
+</html>
