@@ -1,30 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Ejercicio 2</title>
-    </head>
-    <body>
-        <h1>Calcula</h1>
-        <br />
-        <form>
-            <label for="numero1">Numero 1</label>
-            <input type="text" name="numero1" id="numero1">
-            <br>
-            <label for="numero2">Numero 2</label>
-            <input type="text" name="numero2" id="numero2">
-            <br>
-            <p>
-                Resultado:
-                <input type="text" style="text-align: center" id="resultado"
-                    readonly />
-            </p>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 2</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Calculadora de desplazamiento de bits</h1>
+    <label for="numero">Número:</label>
+    <input type="number" id="numero" name="numero" value="10" /><br /><br />
 
-            <div>
-            <script>
-                
-            </script>
-        
-            </body>
-        </html>
+    <label for="cantidad">Cantidad de desplazamiento:</label>
+    <input type="number" id="cantidad" name="cantidad" value="2" /><br /><br />
+
+    <label for="tipo">Tipo de operación:</label>
+    <select id="tipo" name="tipo">
+      <option value="izquierda">Desplazamiento a la izquierda</option>
+      <option value="derecha">Desplazamiento a la derecha</option></select
+    ><br /><br />
+
+    <button onclick="calcular()">Calcular</button><br /><br />
+
+    <p id="resultado"></p>
+  </body>
+</html>
