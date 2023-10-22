@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora If</title>
+  </head>
+  <body>
+    <h1>Calculadora utilizando If</h1>
+    <br />
+    <form>
+      <label for="numero1"
+        >Número 1:
+        <input
+          type="number"
+          style="text-align: center"
+          id="numero1"
+          name="numero1"
+          required
+        />
+      </label>
+      <br /><br />
+      <label for="numero2"
+        >Número 2:
+        <input
+          type="number"
+          style="text-align: center"
+          id="numero2"
+          name="numero2"
+          required
+        />
+      </label>
+      <br /><br />
+      <div>
+        <button type="button" onclick="calcular('suma')">+</button>
+        <button type="button" onclick="calcular('resta')">-</button>
+        <button type="button" onclick="calcular('multiplicacion')">
+          &times;
+        </button>
+        <button type="button" onclick="calcular('division')">÷</button>
+      </div>
+    </form>
+
+    <p>
+      Resultado:
+      <input type="text" style="text-align: center" id="resultado" readonly />
+    </p>
+
+    <script>
+      function calcular(tipo) {
+        var numero1 = parseFloat(document.getElementById("numero1").value);
+        var numero2 = parseFloat(document.getElementById("numero2").value);
+        var resultado;
+        // Anidamos varios 'if' para hacer los calculos en vez de tener 4 funciones distintas
+        if (tipo === "suma") {
+          resultado = (numero1 + numero2).toFixed(2);
+        } else if (tipo === "resta") {
+          resultado = (numero1 - numero2).toFixed(2);
+        } else if (tipo === "multiplicacion") {
+          resultado = (numero1 * numero2).toFixed(2);
+        } else if (tipo === "division") {
+          if (numero2 !== 0) {
+            resultado = (numero1 / numero2).toFixed(2);
+          } else {
+            resultado = "No se puede entre 0";
+          }
+        } else {
+          resultado = "Opción no válida";
+        }
+        // Le devolvemos el valor al ID resultado.
+        document.getElementById("resultado").value = resultado;
+      }
+    </script>
+  </body>
+</html>
