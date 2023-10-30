@@ -19,7 +19,7 @@ function formulario() {
   var año = prompt("Introduce AÑO de nacimiento");
 
   // Escribimos las lineas relacionadas con el nombre:
-  document.write("<h1>TAREA DWEC03</h2><hr />");
+  document.write("<h1>TAREA DWEC03</h1><hr/>");
   document.write("Buenos días " + nombre + "<br>");
   document.write("Tu nombre tiene " + nombre.length + " caracteres, incluidos espacios.<br>");
   document.write("La primera letra A de tu nombre está en la posición: " +(nombre.indexOf("a") + 1) +"<br>");
