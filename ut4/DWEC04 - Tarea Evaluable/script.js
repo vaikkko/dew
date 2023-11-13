@@ -1,3 +1,4 @@
+// Este seria el constructor del Edificio
 function Edificio(calle, numero, codigoPostal) {
   this.calle = calle;
   this.numero = numero;
@@ -11,7 +12,7 @@ function Edificio(calle, numero, codigoPostal) {
 Edificio.prototype.agregarPlantasYPuertas = function(numPlantas, puertasPorPlanta) {
   // Comprobamos 
   if (numPlantas <= 0 || puertasPorPlanta <= 0) {
-    console.log("Por favor, ingrese un número válido de plantas y puertas por planta.");
+    console.log("El número no es válido");
     return;
   }
 
@@ -30,28 +31,28 @@ Edificio.prototype.agregarPlantasYPuertas = function(numPlantas, puertasPorPlant
     this.plantas.push(planta);
   }
 
-  console.log(`Se han agregado ${numPlantas} plantas con ${puertasPorPlanta} puertas cada una al edificio.`);
+  console.log(`Hay ${numPlantas} plantas con ${puertasPorPlanta} puertas cada una.`);
 };
 
 // Método modificar el número del edificio
 Edificio.prototype.modificarNumero = function(nuevoNumero) {
   this.numero = nuevoNumero;
-  console.log(`Número del edificio actualizado a: ${nuevoNumero}.`);
+  console.log(`El nuevo numero es: ${nuevoNumero}.`);
 };
 
 // Método modificar el nombre de la calle 
 Edificio.prototype.modificarCalle = function(nuevaCalle) {
   this.calle = nuevaCalle;
-  console.log(`Nombre de la calle del edificio actualizado a: ${nuevaCalle}.`);
+  console.log(`La nueva calle es: ${nuevaCalle}.`);
 };
 
 // Método modificar el código postal
 Edificio.prototype.modificarCodigoPostal = function(nuevoCodigo) {
   this.codigoPostal = nuevoCodigo;
-  console.log(`Código postal del edificio actualizado a: ${nuevoCodigo}.`);
+  console.log(`El nuevo código postal es:  ${nuevoCodigo}.`);
 };
 
-// Método  imprimir la calle
+// Método imprimir la calle
 Edificio.prototype.imprimeCalle = function() {
   console.log(`Calle del edificio: ${this.calle}`);
 };
@@ -61,7 +62,7 @@ Edificio.prototype.imprimeNumero = function() {
   console.log(`Número del edificio: ${this.numero}`);
 };
 
-// Método  imprimir el código postal
+// Método imprimir el código postal
 Edificio.prototype.imprimeCodigoPostal = function() {
   console.log(`Código postal del edificio: ${this.codigoPostal}`);
 };
@@ -72,13 +73,13 @@ Edificio.prototype.agregarPropietario = function(nombre, planta, puerta) {
     this.plantas[planta].puertas[puerta].propietario = nombre;
     console.log(`${nombre} es ahora el propietario de la puerta ${puerta + 1} de la planta ${planta + 1}.`);
   } else {
-    console.log("La planta o puerta especificada no existe en el edificio.");
+    console.log("No existe.");
   }
 };
 
 // Método imprimir los propietarios
 Edificio.prototype.imprimePlantas = function() {
-  console.log(`Listado de propietarios del edificio calle ${this.calle} número ${this.numero}\n`);
+  console.log(`Lista de propietarios del edificio calle ${this.calle} número ${this.numero}\n`);
 
   this.plantas.forEach((planta, numPlanta) => {
     planta.puertas.forEach((puerta, numPuerta) => {
@@ -89,7 +90,7 @@ Edificio.prototype.imprimePlantas = function() {
   console.log(); 
 };
 
-
+// Creamos edificios 
 const edificioA = new Edificio("Garcia Prieto", 58, "15706");
 const edificioB = new Edificio("Camino Caneiro", 29, "32004");
 const edificioC = new Edificio("San Clemente", "s/n", "15705");
@@ -119,3 +120,4 @@ edificioA.agregarPropietario("Pedro Meijide", 2, 1);
 
 // Imprimimos propietarios actualizados del edificio A
 edificioA.imprimePlantas();
+
