@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 7</title>
+    <script>
+        window.onload = function(){
+            let enlace1 = document.getElementById("enlace1");
+            let enlace2 = document.getElementById("enlace2");
+            let enlace3 = document.getElementById("enlace3");
+
+            enlace1.addEventListener("click",action);
+            enlace2.addEventListener("click",action);
+            enlace3.addEventListener("click",action);
+
+            function action(){
+                alert("Has hecho click, pero no vas a ir a la página");
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <h3> Crea una página HTML con tres enlaces. Al hacer clic en cada enlace, muestra un mensaje indicando que se ha hecho clic y evita la acción predeterminada del enlace utilizando el método preventDefault().</h3>
+    
+    <a id="enlace1" href="http://google.es">Enlace 1</a>
+    <a id="enlace2" href="http://google.es">Enlace 2</a>
+    <a id="enlace3" href="http://google.es">Enlace 3</a>
+</body>
+</html>

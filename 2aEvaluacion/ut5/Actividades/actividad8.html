@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 8</title>
+    <script>
+        window.onload=function(){
+            
+           let boton = document.getElementById("botonPrincipal");
+           boton.addEventListener("click",x);
+            
+           function x(){
+                alert("Has hecho click");
+                boton.removeEventListener("click",x);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h3>Crea una página HTML con un botón. Al hacer clic en el botón, se debería mostrar un mensaje indicando que se ha hecho clic. Además, después del primer clic, el evento de clic debería desactivarse mediante removeEventListener(), y ya no se mostrará el mensaje en clics posteriores.</h3>
+
+    <button id="botonPrincipal">Enviar</button>
+</body>
+</html>

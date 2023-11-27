@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 9</title>
+    <style>
+        .container{
+            display: flex;
+            align-items: center;
+        }
+        img {
+            height: 300px;
+            width: 300px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            let image1 = document.getElementById("image1");
+            let image2 = document.getElementById("image2");
+            let image3 = document.getElementById("image3");
+
+            
+            image1.addEventListener("click", cambiarImagen);
+
+            function cambiarImagen() {
+                
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <h3>Crea una galería de imágenes con miniaturas. Al hacer clic en una miniatura, muestra la imagen completa en un
+        área principal. Además, añade eventos para navegar entre las imágenes usando las teclas de flecha izquierda y
+        derecha.</h3>
+    <div class="container">
+        <div id="principal">
+            <img src="img/image1.jpg" alt="">
+        </div>
+        <div id="miniatura">
+            <img src="img/image2.jpg" alt="">
+            <img src="img/image3.jpeg" alt="">
+        </div>
+    </div>
+
+</body>
+
+</html>

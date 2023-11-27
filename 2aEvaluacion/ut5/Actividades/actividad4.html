@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 4</title>
+    <style>
+        #cuadrado{
+            width: 50px;
+            height: 50px;
+            background: lightcoral;
+        }
+
+    </style>
+    <script>
+        function cambiarColor(){
+           document.getElementById("cuadrado").style.background="lightgreen";
+        }
+    </script>
+</head>
+<body>
+    <h3>Crea una página HTML con un cuadrado de color inicialmente rojo. Al hacer clic en el cuadrado, cambia su color a azul. Agrega un evento que al pasar el ratón sobre el cuadrado y salir muestre "¡Ratón fuera del cuadrado!".</h3>
+
+    <div onmouseout="alert('Ratón fuera del cuadrado!!!')" onclick="cambiarColor()" id="cuadrado"></div>
+</body>
+</html>
