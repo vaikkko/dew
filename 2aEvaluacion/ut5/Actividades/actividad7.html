@@ -14,7 +14,8 @@
             enlace2.addEventListener("click",action);
             enlace3.addEventListener("click",action);
 
-            function action(){
+            function action(event){
+                event.preventDefault();
                 alert("Has hecho click, pero no vas a ir a la página");
             }
             
