@@ -7,42 +7,60 @@ const email = document.getElementById("email");
 const provincia = document.getElementById("provincia");
 
 nombre.addEventListener("blur", checkName);
+apellidos.addEventListener("blur", checkApellidos);
+edad.addEventListener("blur", checkEdad);
+nif.addEventListener("blur", checkNif);
+email.addEventListener("blur", checkEmail);
 
 function checkName(e) {
-  const field = e.target;
   const value = e.target.value;
   if (value.length === 0) {
-    field.parentElement.insertAdjacentHTML(
-      "beforeend",
-      `<span class="error">El campo 'Nombre' es obligatorio!</span>`
-    );
+    console.log("No puedes dejar vacio el campo Nombre");
+  } else {
+    value.toUpperCase();
   }
 }
 
-// nombre.addEventListener("blur", notBlanc);
+function checkApellidos(e) {
+  const value = e.target.value;
+  if (value.length === 0) {
+    console.log("No puedes dejar vacio el campo Apellidos");
+  } else {
+    value.toUpperCase();
+  }
+}
 
-// apellidos.addEventListener("blur", toMayus);
-// apellidos.addEventListener("blur", notBlanc);
+function checkEdad(e) {
+  const value = e.target.value;
+  if (value.length === 0) {
+    console.log("La edad es un campo obligatorio");
+  } else if (isNaN(value)) {
+    console.log("La edad solo puede ser un valor numérico");
+  } else if (parseInt(value) > 105) {
+    console.log("Escribe una edad válida");
+  }
+}
 
-// edad.addEventListener("blur", adulto);
+function checkNif(e) {
+  const value = e.target.value;
+  const pat = /(^([0-9]{8,8}\-[A-Z])|^)$/;
+  if (value.length === 0) {
+    console.log("El número NIF es obligatorio");
+  } else if (!pat.test(value)) {
+    console.log("No es un número NIF válido, revisalo.");
+  } else {
+    console.log("Número Correcto");
+  }
+}
 
-// function toMayus(event) {
-//   const cambiarM = event.target.value;
-//   event.target.value = cambiarM.toUpperCase();
-// }
-
-// function notBlanc(event) {
-//   const notBlanc = event.target.value;
-//   if (notBlanc === "") {
-//     alert("Este es un campo obligatorio");
-//   }
-// }
-
-// function adulto(event) {
-//   const edad = event.target.value;
-//   if (edad > 105) {
-//     alert("Introduce una edad válida");
-//   } else if (edad < 10) {
-//     alert("Tendrás que esperar unos años para registrarte");
-//   }
-// }
+function checkEmail(e) {
+  const value = e.target.value;
+  const pat = /^[^@\s]+@[^@\.\s]+(\.[^@\.\s]+)+$/;
+  if (value.length === 0) {
+    console.log("El campo Email es obligatorio");
+  } else if (!pat.test(value)) {
+    console.log("Escribe un Email válido");
+  }else{
+    console.log("Email correcto");
+  }
+}
