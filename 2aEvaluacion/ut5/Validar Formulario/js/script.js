@@ -1,4 +1,4 @@
-const form = document.getElementById("formulario");
+const formulario = document.getElementById("formulario");
 const nombre = document.getElementById("nombre");
 const apellidos = document.getElementById("apellidos");
 const edad = document.getElementById("edad");
@@ -18,22 +18,18 @@ provincia.addEventListener("blur", checkProvincia);
 fecha.addEventListener("blur", checkFecha);
 telefono.addEventListener("blur", checkTelefono);
 hora.addEventListener("blur", checkHora);
-
-
-
-function enviar(e){
-
-  
-}
+formulario.addEventListener("submit", enviar);
 
 function checkName(e) {
   const value = e.target.value;
   if (value.length === 0) {
     document.getElementById("errores").innerHTML =
       "No puedes dejar el Nombre en blanco.";
+    return false;
   } else {
     e.target.value = value.toUpperCase();
     document.getElementById("errores").innerHTML = "";
+    return true;
   }
 }
 
@@ -42,9 +38,11 @@ function checkApellidos(e) {
   if (value.length === 0) {
     document.getElementById("errores").innerHTML =
       "No puedes dejar los Apellidos en blanco.";
+    return false;
   } else {
     e.target.value = value.toUpperCase();
     document.getElementById("errores").innerHTML = "";
+    return true;
   }
 }
 
@@ -53,11 +51,14 @@ function checkEdad(e) {
   if (value.length === 0) {
     document.getElementById("errores").innerHTML =
       "La edad es un campo obligatorio";
+    return false;
   } else if (isNaN(value)) {
     document.getElementById("errores").innerHTML =
       "La edad solo puede ser un valor numérico";
-  } else if (parseInt(value) > 105 || parseInt(value)<0) {
+    return false;
+  } else if (parseInt(value) > 105 || parseInt(value) < 0) {
     document.getElementById("errores").innerHTML = "Escribe una edad válida";
+    return true;
   }
 }
 
@@ -68,11 +69,15 @@ function checkNif(e) {
     console.log("El número NIF es obligatorio");
     document.getElementById("errores").innerHTML =
       "El campo NIF es obligatorio";
+
+    return false;
   } else if (!pat.test(value)) {
     document.getElementById("errores").innerHTML =
       "No es un número NIF válido, XXXXXXXX-L.";
+    return false;
   } else {
     document.getElementById("errores").innerHTML = "";
+    return true;
   }
 }
 
@@ -82,10 +87,13 @@ function checkEmail(e) {
   if (value.length === 0) {
     document.getElementById("errores").innerHTML =
       "El campo Email es obligatorio";
+    return false;
   } else if (!pat.test(value)) {
     document.getElementById("errores").innerHTML = "Escribe un Emaill válido";
+    return false;
   } else {
     document.getElementById("errores").innerHTML = "";
+    return true;
   }
 }
 
@@ -94,8 +102,10 @@ function checkProvincia(e) {
   if (value === "0") {
     document.getElementById("errores").innerHTML =
       "Seleccionar una Provincia es obligatorio.";
+    return false;
   } else {
     document.getElementById("errores").innerHTML = "";
+    return true;
   }
 }
 
@@ -105,13 +115,17 @@ function checkFecha(e) {
     /^(?:(?:(?:0?[1-9]|1\d|2[0-8])[/](?:0?[1-9]|1[0-2])|(?:29|30)[/](?:0?[13-9]|1[0-2])|31[/](?:0?[13578]|1[02]))[/](?:0{2,3}[1-9]|0{1,2}[1-9]\d|0?[1-9]\d{2}|[1-9]\d{3})|29[/]0?2[/](?:\d{1,2}(?:0[48]|[2468][048]|[13579][26])|(?:0?[48]|[13579][26]|[2468][048])00))$/;
 
   if (value.length === 0) {
+    scrollbars;
     document.getElementById("errores").innerHTML =
       "El campo Fecha es obligatorio";
+    return false;
   } else if (!pat.test(value)) {
     document.getElementById("errores").innerHTML =
       "Introdce una fecha válida, dd/mm/aaaa.";
+    return false;
   } else {
     document.getElementById("errores").innerHTML = "";
+    return true;
   }
 }
 
@@ -121,10 +135,13 @@ function checkTelefono(e) {
   if (value.length === 0) {
     document.getElementById("errores").innerHTML =
       "No puedes dejar el campo Teléfono en blanco";
+    return false;
   } else if (!pat.test(value)) {
     document.getElementById("errores").innerHTML = "Escribe un teléfono válido";
+    return false;
   } else {
     document.getElementById("errores").innerHTML = "";
+    return true;
   }
 }
 
@@ -134,10 +151,15 @@ function checkHora(e) {
   if (value.length === 0) {
     document.getElementById("errores").innerHTML =
       "No puedes dejar el campo de la Hora en blanco";
+    return false;
   } else if (!pat.test(value)) {
     document.getElementById("errores").innerHTML =
       "Escribe una hora válida, hh:mm.";
+    return false;
   } else {
     document.getElementById("errores").innerHTML = "";
+    return true;
   }
 }
+
+function enviar(e) {}
