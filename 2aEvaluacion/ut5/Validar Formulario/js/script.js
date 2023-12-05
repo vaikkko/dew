@@ -19,9 +19,10 @@ fecha.addEventListener("blur", checkFecha);
 telefono.addEventListener("blur", checkTelefono);
 hora.addEventListener("blur", checkHora);
 
+form.addEventListener("submit",validarFormulario);
 
 
-function enviar(e){
+function validarFormulario(e){
 
   
 }
