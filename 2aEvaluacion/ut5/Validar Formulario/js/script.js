@@ -1,4 +1,4 @@
-const formulario = document.getElementById("formulario");
+// Selecciono por Id todos los campos necesarios:
 const nombre = document.getElementById("nombre");
 const apellidos = document.getElementById("apellidos");
 const edad = document.getElementById("edad");
@@ -9,6 +9,10 @@ const fecha = document.getElementById("fecha");
 const telefono = document.getElementById("telefono");
 const hora = document.getElementById("hora");
 
+const formulario = document.getElementById("formulario");
+
+
+// Añado el evento, y la función:
 nombre.addEventListener("blur", checkName);
 apellidos.addEventListener("blur", checkApellidos);
 edad.addEventListener("blur", checkEdad);
@@ -18,8 +22,9 @@ provincia.addEventListener("blur", checkProvincia);
 fecha.addEventListener("blur", checkFecha);
 telefono.addEventListener("blur", checkTelefono);
 hora.addEventListener("blur", checkHora);
-formulario.addEventListener("submit", enviar);
 
+
+// Validamos el nombre:
 function checkName(e) {
   const value = e.target.value;
   if (value.length === 0) {
@@ -32,7 +37,7 @@ function checkName(e) {
     return true;
   }
 }
-
+// Validamos los apellidos:
 function checkApellidos(e) {
   const value = e.target.value;
   if (value.length === 0) {
@@ -45,7 +50,7 @@ function checkApellidos(e) {
     return true;
   }
 }
-
+// Validamos la edad:
 function checkEdad(e) {
   const value = e.target.value;
   if (value.length === 0) {
@@ -61,7 +66,7 @@ function checkEdad(e) {
     return true;
   }
 }
-
+// Validamos el NIF:
 function checkNif(e) {
   const value = e.target.value;
   const pat = /(^([0-9]{8,8}\-[A-Z])|^)$/;
@@ -80,7 +85,7 @@ function checkNif(e) {
     return true;
   }
 }
-
+//Validamos el Email:
 function checkEmail(e) {
   const value = e.target.value;
   const pat = /^[^@\s]+@[^@\.\s]+(\.[^@\.\s]+)+$/;
@@ -96,7 +101,7 @@ function checkEmail(e) {
     return true;
   }
 }
-
+// Validamos la Provincia:
 function checkProvincia(e) {
   const value = e.target.value[0];
   if (value === "0") {
@@ -108,7 +113,7 @@ function checkProvincia(e) {
     return true;
   }
 }
-
+// Validamos la fecha:
 function checkFecha(e) {
   const value = e.target.value;
   const pat =
@@ -128,7 +133,7 @@ function checkFecha(e) {
     return true;
   }
 }
-
+// Validamos el Telefono
 function checkTelefono(e) {
   const value = e.target.value;
   const pat = /^([6789][0-9]{8,13})$/;
@@ -145,6 +150,7 @@ function checkTelefono(e) {
   }
 }
 
+// Validamos la hora:
 function checkHora(e) {
   const value = e.target.value;
   const pat = /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/;
@@ -162,4 +168,29 @@ function checkHora(e) {
   }
 }
 
-function enviar(e) {}
+
+// Enviamos el formulario, y pedimos confirmación de la acción:
+// No consigo que me funcione y no encuentro el problema...
+formulario.addEventListener("submit", function (e) {
+  e.preventDefault();
+  if (
+    checkName(e) &&
+    checkApellidos(e) &&
+    checkEdad(e) &&
+    checkNif(e) &&
+    checkEmail(e) &&
+    checkProvincia(e) &&
+    checkFecha(e) &&
+    checkTelefono(e) &&
+    checkHora(e)
+  ) {
+    var eleccion = confirm("¿Estas seguro de que quieres enviar los datos?");
+    if (eleccion === true) {
+      alert("Has enviado los datos correctamente");
+    } else {
+      alert("Has cancelado el envio");
+    }
+  } else {
+
+  }
+});
