@@ -174,16 +174,17 @@ function checkHora(e) {
 formulario.addEventListener("submit", function (e) {
   e.preventDefault();
   if (
-    checkName(e) &&
-    checkApellidos(e) &&
-    checkEdad(e) &&
-    checkNif(e) &&
-    checkEmail(e) &&
-    checkProvincia(e) &&
-    checkFecha(e) &&
-    checkTelefono(e) &&
-    checkHora(e)
+    checkName() &&
+    checkApellidos() &&
+    checkEdad() &&
+    checkNif() &&
+    checkEmail() &&
+    checkProvincia() &&
+    checkFecha() &&
+    checkTelefono() &&
+    checkHora()
   ) {
+    
     var eleccion = confirm("¿Estas seguro de que quieres enviar los datos?");
     if (eleccion === true) {
       alert("Has enviado los datos correctamente");
