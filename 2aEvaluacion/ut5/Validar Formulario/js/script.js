@@ -1,3 +1,4 @@
+//prueba
 // Selecciono por Id todos los campos necesarios:
 const nombre = document.getElementById("nombre");
 const apellidos = document.getElementById("apellidos");
