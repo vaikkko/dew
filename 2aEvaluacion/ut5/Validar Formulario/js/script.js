@@ -23,34 +23,34 @@ telefono.addEventListener("blur", checkTelefono);
 hora.addEventListener("blur", checkHora);
 
 // Validamos el nombre:
-function checkName(e) {
-  const value = e.target.value;
+function checkName() {
+  const value = nombre.value;
   if (value.length === 0) {
     document.getElementById("errores").innerHTML =
       "No puedes dejar el Nombre en blanco.";
     return false;
   } else {
-    e.target.value = value.toUpperCase();
+    nombre.value = value.toUpperCase();
     document.getElementById("errores").innerHTML = "";
     return true;
   }
 }
 // Validamos los apellidos:
-function checkApellidos(e) {
-  const value = e.target.value;
+function checkApellidos() {
+  const value = apellidos.value;
   if (value.length === 0) {
     document.getElementById("errores").innerHTML =
       "No puedes dejar los Apellidos en blanco.";
     return false;
   } else {
-    e.target.value = value.toUpperCase();
+    apellidos.value = value.toUpperCase();
     document.getElementById("errores").innerHTML = "";
     return true;
   }
 }
 // Validamos la edad:
-function checkEdad(e) {
-  const value = e.target.value;
+function checkEdad() {
+  const value = edad.value;
   if (value.length === 0) {
     document.getElementById("errores").innerHTML =
       "La edad es un campo obligatorio";
@@ -66,7 +66,7 @@ function checkEdad(e) {
 }
 // Validamos el NIF:
 function checkNif(e) {
-  const value = e.target.value;
+  const value = nif.value;
   const pat = /(^([0-9]{8,8}\-[A-Z])|^)$/;
   if (value.length === 0) {
     console.log("El número NIF es obligatorio");
@@ -84,8 +84,8 @@ function checkNif(e) {
   }
 }
 //Validamos el Email:
-function checkEmail(e) {
-  const value = e.target.value;
+function checkEmail() {
+  const value = email.value;
   const pat = /^[^@\s]+@[^@\.\s]+(\.[^@\.\s]+)+$/;
   if (value.length === 0) {
     document.getElementById("errores").innerHTML =
@@ -100,8 +100,8 @@ function checkEmail(e) {
   }
 }
 // Validamos la Provincia:
-function checkProvincia(e) {
-  const value = e.target.value[0];
+function checkProvincia() {
+  const value = provincia.value[0];
   if (value === "0") {
     document.getElementById("errores").innerHTML =
       "Seleccionar una Provincia es obligatorio.";
@@ -112,13 +112,13 @@ function checkProvincia(e) {
   }
 }
 // Validamos la fecha:
-function checkFecha(e) {
-  const value = e.target.value;
+function checkFecha() {
+  const value = fecha.value;
   const pat =
     /^(?:(?:(?:0?[1-9]|1\d|2[0-8])[/](?:0?[1-9]|1[0-2])|(?:29|30)[/](?:0?[13-9]|1[0-2])|31[/](?:0?[13578]|1[02]))[/](?:0{2,3}[1-9]|0{1,2}[1-9]\d|0?[1-9]\d{2}|[1-9]\d{3})|29[/]0?2[/](?:\d{1,2}(?:0[48]|[2468][048]|[13579][26])|(?:0?[48]|[13579][26]|[2468][048])00))$/;
 
   if (value.length === 0) {
-    scrollbars;
+    
     document.getElementById("errores").innerHTML =
       "El campo Fecha es obligatorio";
     return false;
@@ -133,7 +133,7 @@ function checkFecha(e) {
 }
 // Validamos el Telefono
 function checkTelefono(e) {
-  const value = e.target.value;
+  const value = telefono.value;
   const pat = /^([6789][0-9]{8,13})$/;
   if (value.length === 0) {
     document.getElementById("errores").innerHTML =
@@ -150,7 +150,7 @@ function checkTelefono(e) {
 
 // Validamos la hora:
 function checkHora(e) {
-  const value = e.target.value;
+  const value = hora.value;
   const pat = /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/;
   if (value.length === 0) {
     document.getElementById("errores").innerHTML =
@@ -168,7 +168,7 @@ function checkHora(e) {
 
 // Enviamos el formulario, y pedimos confirmación de la acción:
 // No consigo que me funcione y no encuentro el problema...
-formulario.addEventListener("submit", function (e) {
+formulario.addEventListener("click", function () {
   e.preventDefault();
   if (
     checkName() &&

@@ -212,6 +212,7 @@ class Game {
     this.ctx.fillStyle = "#0095DD";
     this.ctx.fillText("Puntuación: " + this.score, 8, 20);
   }
+
   // Método para dibujar las vidas restantes en el lienzo
   drawLives() {
     this.ctx.font = "16px Arial";
