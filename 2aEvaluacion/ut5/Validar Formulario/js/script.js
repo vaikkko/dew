@@ -1,4 +1,3 @@
-//prueba
 // Selecciono por Id todos los campos necesarios:
 const nombre = document.getElementById("nombre");
 const apellidos = document.getElementById("apellidos");
@@ -12,7 +11,6 @@ const hora = document.getElementById("hora");
 
 const formulario = document.getElementById("formulario");
 
-
 // Añado el evento, y la función:
 nombre.addEventListener("blur", checkName);
 apellidos.addEventListener("blur", checkApellidos);
@@ -23,7 +21,6 @@ provincia.addEventListener("blur", checkProvincia);
 fecha.addEventListener("blur", checkFecha);
 telefono.addEventListener("blur", checkTelefono);
 hora.addEventListener("blur", checkHora);
-
 
 // Validamos el nombre:
 function checkName(e) {
@@ -169,7 +166,6 @@ function checkHora(e) {
   }
 }
 
-
 // Enviamos el formulario, y pedimos confirmación de la acción:
 // No consigo que me funcione y no encuentro el problema...
 formulario.addEventListener("submit", function (e) {
@@ -185,7 +181,6 @@ formulario.addEventListener("submit", function (e) {
     checkTelefono() &&
     checkHora()
   ) {
-    
     var eleccion = confirm("¿Estas seguro de que quieres enviar los datos?");
     if (eleccion === true) {
       alert("Has enviado los datos correctamente");
@@ -193,6 +188,5 @@ formulario.addEventListener("submit", function (e) {
       alert("Has cancelado el envio");
     }
   } else {
-
   }
 });
