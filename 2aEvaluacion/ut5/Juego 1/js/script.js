@@ -12,7 +12,8 @@ class Ball {
   draw() {
     this.ctx.beginPath();
     this.ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-    this.ctx.fillStyle = "#0095DD";
+    //this.ctx.fillStyle = "#0095DD";
+    this.ctx.fillStyle = game.colorAcutal;
     this.ctx.fill();
     this.ctx.closePath();
   }
@@ -30,7 +31,8 @@ class Paddle {
   draw() {
     this.ctx.beginPath();
     this.ctx.rect(this.x, this.y, this.width, this.height);
-    this.ctx.fillStyle = "#0095DD";
+    //this.ctx.fillStyle = "#0095DD";
+    this.ctx.fillStyle = game.colorAcutal;
     this.ctx.fill();
     this.ctx.closePath();
   }
@@ -52,6 +54,7 @@ class Brick {
     this.ctx.beginPath();
     this.ctx.rect(this.x, this.y, this.width, this.height);
     this.ctx.fillStyle = "#0095DD";
+    //this.ctx.fillStyle = game.colorAcutal;
     this.ctx.fill();
     this.ctx.closePath();
   }
@@ -82,12 +85,45 @@ class Game {
     this.leftPressed = false; // Estado de la tecla izquierda presionada
     this.score = 0; // Puntuación del jugador
     this.lives = 3; // Vidas restantes del jugador
+
+    // test
+    this.colorAcutal = "#0095DD";
+
     // Agregar event listeners para las teclas
     document.addEventListener("keydown", this.keyDownHandler.bind(this), false);
     document.addEventListener("keyup", this.keyUpHandler.bind(this), false);
     // Llamar al método draw repetidamente cada 10 milisegundos
     setInterval(this.draw.bind(this), 10);
   }
+
+  // FUNCIÓN PARA GUARDAR EL ESTADO DEL JUEGO
+  guardarEnLocalStorage(){
+    const gameState = {
+      score: this.score,
+      //..
+    }
+    localStorage.setItem("gameState", JSON.stringify(gameState));
+  }
+
+  // FUNCIÓN PARA CARGAR  EL ESTADO DEL JUEGO
+  cargarEnLocalStorage(){
+
+    if(localStorage.getItem("gameState")){
+
+      const gameState = JSON.parse(localStorage.getItem("gameState"));
+
+
+
+    }
+
+    // pones todos los valores en el objeto 
+
+    this.score = gameState.score;
+
+    // ELIMINARLO DEL LOCAL
+    
+  }
+
 
   // Método para crear la matriz de instancias de ladrillos
   createBricks() {
@@ -133,6 +169,7 @@ class Game {
           ) {
             this.ball.dy = -this.ball.dy;
             b.status = 0;
+            this.colorAcutal = "#" + Math.floor(Math.random()*16777215).toString(16);
             this.score++;
             if (this.score === 15) {
               alert("¡GANASTE, FELICIDADES!");
@@ -146,6 +183,10 @@ class Game {
 
   // Método principal para dibujar y actualizar el juego
   draw() {
+    // TODO llamar a guardar el estado
+    this.guardarEnLocalStorage();
+    
+
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.drawBricks();
     this.ball.draw();
@@ -161,6 +202,7 @@ class Game {
     }
     if (this.ball.y + this.ball.dy < this.ball.radius) {
       this.ball.dy = -this.ball.dy;
+      
     } else if (
       this.ball.y + this.ball.dy >
       this.canvas.height - this.ball.radius

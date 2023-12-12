@@ -61,6 +61,9 @@ function checkEdad() {
     return false;
   } else if (parseInt(value) > 105 || parseInt(value) < 0) {
     document.getElementById("errores").innerHTML = "Escribe una edad válida";
+    return false;
+  } else {
+    document.getElementById("errores").innerHTML = "";
     return true;
   }
 }
@@ -168,7 +171,7 @@ function checkHora(e) {
 
 // Enviamos el formulario, y pedimos confirmación de la acción:
 // No consigo que me funcione y no encuentro el problema...
-formulario.addEventListener("click", function () {
+formulario.addEventListener("click", function (e) {
   e.preventDefault();
   if (
     checkName() &&
