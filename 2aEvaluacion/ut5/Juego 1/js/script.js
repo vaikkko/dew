@@ -1,3 +1,9 @@
+/*He utilizado el juego que nos proporcionaste, y he añadido dos cambios:
+  1 - Cambiar el color de la pelota y la raqueta cada vez que la pelota toca un brick:
+      - Lineas de código : 22, 41 y 159 .
+  2 - Mediante la tecla 'P' pausar y reanudar el juego:
+      - Lineas de código : 95, 104, 131 y 177.   */
+
 // Definición de la clase Ball para representar la bola en el juego
 class Ball {
   constructor(ctx, x, y, radius, dx, dy) {
@@ -54,7 +60,6 @@ class Brick {
     this.ctx.beginPath();
     this.ctx.rect(this.x, this.y, this.width, this.height);
     this.ctx.fillStyle = "#0095DD";
-    //this.ctx.fillStyle = game.colorAcutal;
     this.ctx.fill();
     this.ctx.closePath();
   }
@@ -86,8 +91,8 @@ class Game {
     this.score = 0; // Puntuación del jugador
     this.lives = 3; // Vidas restantes del jugador
 
-    // test
-    this.colorAcutal = "#0095DD";
+
+    this.paused = false; //  Variable para la pausa
 
     // Agregar event listeners para las teclas
     document.addEventListener("keydown", this.keyDownHandler.bind(this), false);
@@ -96,34 +101,13 @@ class Game {
     setInterval(this.draw.bind(this), 10);
   }
 
-  // FUNCIÓN PARA GUARDAR EL ESTADO DEL JUEGO
-  guardarEnLocalStorage(){
+  // Función mediante el localStorage para guardar la puntuación de la partida.
+  guardarEnLocalStorage() {
     const gameState = {
       score: this.score,
-      //..
-    }
+    };
     localStorage.setItem("gameState", JSON.stringify(gameState));
   }
-
-  // FUNCIÓN PARA CARGAR  EL ESTADO DEL JUEGO
-  cargarEnLocalStorage(){
-
-    if(localStorage.getItem("gameState")){
-
-      const gameState = JSON.parse(localStorage.getItem("gameState"));
-
-
-
-    }
-
-    // pones todos los valores en el objeto 
-
-    this.score = gameState.score;
-
-    // ELIMINARLO DEL LOCAL
-    
-  }
-
 
   // Método para crear la matriz de instancias de ladrillos
   createBricks() {
@@ -144,6 +128,9 @@ class Game {
       this.rightPressed = true;
     } else if (e.keyCode == 37) {
       this.leftPressed = true;
+    } else if (e.keyCode == 80) {
+      // Aqui inplementamos la Tecla 'P' para pausar o reanudar.
+      this.paused = !this.paused;
     }
   }
 
@@ -169,7 +156,10 @@ class Game {
           ) {
             this.ball.dy = -this.ball.dy;
             b.status = 0;
-            this.colorAcutal = "#" + Math.floor(Math.random()*16777215).toString(16);
+            this.colorAcutal =
+              "#" + Math.floor(Math.random() * 16777215).toString(16);
+            // Aquí se genera un color aleatorio para la pelota y la raqueta
+            // cada vez que toca un brick.
             this.score++;
             if (this.score === 15) {
               alert("¡GANASTE, FELICIDADES!");
@@ -183,9 +173,12 @@ class Game {
 
   // Método principal para dibujar y actualizar el juego
   draw() {
+    // Condición para verificar si el juego está pausado
+    if (this.paused) {
+      return;
+    }
     // TODO llamar a guardar el estado
     this.guardarEnLocalStorage();
-    
 
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.drawBricks();
@@ -202,7 +195,6 @@ class Game {
     }
     if (this.ball.y + this.ball.dy < this.ball.radius) {
       this.ball.dy = -this.ball.dy;
-      
     } else if (
       this.ball.y + this.ball.dy >
       this.canvas.height - this.ball.radius
