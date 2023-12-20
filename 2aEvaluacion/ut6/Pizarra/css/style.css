@@ -1,0 +1,41 @@
+body {
+  background-color: rgb(40, 92, 111);
+}
+h1 {
+  color: black;
+}
+
+.options {
+  height: 300px;
+  width: 250px;
+  background-color: lightblue;
+  border-radius: 5px;
+  margin-top: 20px;
+  padding-left: 10px;
+}
+
+#reset {
+  margin-top: 60px;
+  margin-left: 180px;
+}
+
+#zonadibujo {
+  height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+#t1{
+  transform: scale(1);
+}
+#t2{
+  transform: scale(1.5);
+}
+#t3{
+  transform: 
+  scale(2);
+}
+canvas {
+  background-color: #fff;
+}

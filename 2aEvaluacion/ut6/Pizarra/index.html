@@ -1,0 +1,34 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>DWEC06 - Tarea</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+    <div id="zonadibujo">
+        <div class="options">
+            <h1>Pizarra</h1>
+            <label for="setColor">Color de pincel:</label>
+            <input type="color" id="setColor" value="#000000" />
+            <br><br>
+            <label for="setPincel">Estado del Pincel:</label>
+            <input type="text" id="setPincel" value="Desactivado" />
+            <br><br>
+            <label class="tamañoPincel">
+                Tamaño de Pincel:
+                <input id="t1" type="radio" name="tamaño" value="pequeño" checked>
+                <input id="t2" type="radio" name="tamaño" value="mediano">
+                <input id="t3" type="radio" name="tamaño" value="grande">
+            </label>
+            <button id="reset">Clear</button>
+        </div>
+        <canvas id="main-canvas" width="700" height="700"></canvas>
+    </div>
+</body>
+
+</html>
