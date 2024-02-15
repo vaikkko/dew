@@ -39,9 +39,9 @@ class paciente{
         if(confirm('¿Desea agregar episodio al historial?')){
             let ID = prompt('Introduzca n.º de episodio:');
             let fecha = prompt('Introduzca fecha:');
-            let Dx = prompt('Introduzca diagnóstico:')
+            let Dx = prompt('Introduzca diagnóstico:');
             let Tto = prompt('Introduzca tratamiento:');
-            let Doc = prompt('Introduzca responsable:')
+            let Doc = prompt('Introduzca responsable:');
             this.historial.push({'ID': ID,'Fecha': fecha,'Diagnóstico': Dx,'Tratamiento': Tto,'Responsable': Doc});
         }
     }
