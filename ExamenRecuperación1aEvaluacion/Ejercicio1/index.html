@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>2DAW - Recuperación Primera Evaluación. Ejercicio 2.</title>
+<link rel="stylesheet" type="text/css" href="https://www3.gobiernodecanarias.org/educacion/cau_ce/cookies/cookieconsent.min.css"/><script  type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/cookies/cookieconsent.min.js"></script><script type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/cookies/cauce_cookie.js"></script><script type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/estadisticasweb/scripts/piwik-base.js"></script><script type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/estadisticasweb/scripts/piwik-eforma.js"></script></head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <!-- Bloque 1: Agregar Mascota -->
+            <div class="create-car-form">
+                <h2 style="font-size: 18px;">Nueva mascota</h2>
+                <form id="registro">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
+
+                    <label for="especie">Especie:</label>
+                    <input type="text" id="especie" name="especie" placeholder="Especie" required>
+
+                    <label for="edad">Edad:</label>
+                    <input type="text" id="edad" name="edad" placeholder="Edad" required>
+
+                    <label for="propietario">Propietario/a:</label>
+                    <input type="text" id="propietario" name="propietario" placeholder="Propietario/a" required>
+
+                    <label for="telefono">Teléfono:</label>
+                    <input type="text" id="telefono" name="telefono" placeholder="Teléfono de contacto" required>
+
+                    <button id="crearnuevo">Crear</button>
+                </form>
+            </div>
+        </div>
+        <div class="main-content">
+        <!-- Bloque 2: Visualizar y Modificar Mascota -->
+            <div>
+                <div class="section-header">
+                    <h2 style="font-size: 18px;">Datos de la mascota</h2>
+                </div>
+                <form>
+                    <textarea id="datosmasctota" name="datosmascota" rows="8" placeholder="Datos mascota"></textarea>
+
+                <div class="modification-buttons">
+                    <h2 style="font-size: 16px;">Modificar:</h2>
+                    <button type="button" id="modificarNombre">Nombre</button>
+                    <button type="button" id="modificarEspecie">Especie</button>
+                    <button type="button" id="modificarEdad">Edad</button>
+                    <button type="button" id="modificarPropietario">Propietario/a</button>
+                    <button type="button" id="modificarTelefono">Teléfono</button>
+                </div>
+                </form>
+            </div>
+
+            <!-- Bloque 3: Detalles -->
+            <div>
+                <div class="section-header">
+                    <h2 style="font-size: 18px;">Historial</h2>
+                </div>
+                <textarea id="historial" name="historial" rows="10" placeholder="Historial completo"></textarea>
+            <div>
+                <button type="button" id="agregarEps">Agregar episodio</button>
+                <button type="button" id="limpiar">Limpiar ventana</button>
+            </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

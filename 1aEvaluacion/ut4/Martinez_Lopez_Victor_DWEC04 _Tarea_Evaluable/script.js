@@ -1,123 +1,124 @@
-// Este seria el constructor del Edificio
-function Edificio(calle, numero, codigoPostal) {
-  this.calle = calle;
-  this.numero = numero;
-  this.codigoPostal = codigoPostal;
-  this.plantas = [];
-
-  console.log(`Edifcio en Calle : ${calle}, nº: ${numero}, CP: ${codigoPostal}.`);
+class Edificio {
+  constructor(calle, numero, cp) {
+    this.calle = calle;
+    this.numero = numero;
+    this.codigo_postal = cp;
+    this.plantas = [];
+    document.writeln(
+      `<p>Construido nuevo edificio en calle: ${calle}, nº: ${numero}, CP: ${this.codigo_postal}</p>`
+    );
+  }
+  agregarPlantasYPuertas(numplantas, puertas) {
+    for (let i = 0; i < numplantas; i++) {
+      let planta = [];
+      for (let j = 0; j < puertas; j++) {
+        planta.push("");
+      }
+      this.plantas.push(planta);
+    }
+  }
+  agregarPropietario(nombre, planta, puerta) {
+    this.plantas[planta - 1][puerta - 1] = nombre;
+    document.writeln(
+      `<p>${nombre} es ahora el propietario de la puerta ${puerta} de la planta ${planta}</p>`
+    );
+  }
+  modificarNumero(numero) {
+    this.numero = numero;
+  }
+  modificarCalle(calle) {
+    this.calle = calle;
+  }
+  modificarCodigoPostal(codigo) {
+    this.codigo_postal = codigo;
+  }
+  imprimeCalle() {
+    return `La calle del edificio es: ${this.calle}`;
+  }
+  imprimeNumero() {
+    return `El número del edificio es: ${this.numero}`;
+  }
+  imprimeCodigoPostal() {
+    return `El código postal del edificio es: ${this.codigo_postal}`;
+  }
+  imprimePlantas() {
+    for (let i = 0; i < this.plantas.length; i++) {
+      for (let j = 0; j < this.plantas[i].length; j++) {
+        document.write(
+          `<p>Propietario del piso ${j + 1} de la planta ${i + 1}: ${
+            this.plantas[i][j]
+          }</p>`
+        );
+      }
+    }
+  }
 }
 
- // Agregamos plantas 
-Edificio.prototype.agregarPlantasYPuertas = function(numPlantas, puertasPorPlanta) {
-  // Comprobamos 
-  if (numPlantas <= 0 || puertasPorPlanta <= 0) {
-    console.log("El número no es válido");
-    return;
-  }
+function imprimirEjemplo() {
+  document.open();
+  /* Aquí se muestra un ejemplo de lo que tendría que mostrar la aplicación:
+  Trabajando con objetos Javascript:
 
-  // Creamos puertas y plantas
-  for (let i = 0; i < numPlantas; i++) {
-    let planta = {
-      puertas: []
-    };
+  Instanciamos 3 objetos edificioA, edificioB y edificioC con estos datos: */
 
-    // Agregamos las puertas a la planta
-    for (let j = 1; j <= puertasPorPlanta; j++) {
-      planta.puertas.push({ propietario: null });
-    }
+  let edificio_A = new Edificio("Garcia Prieto", 58, 15706);
+  /* Construido nuevo edificio en calle: Garcia Prieto, nº: 58, CP: 15706. */
 
-    // Agregamos la planta al edificio
-    this.plantas.push(planta);
-  }
+  let edificio_B = new Edificio("Camino Caneiro", 29, 32004);
+  /* Construido nuevo edificio en calle: Camino Caneiro, nº: 29, CP: 32004. */
 
-  console.log(`Hay ${numPlantas} plantas con ${puertasPorPlanta} puertas cada una.`);
-};
+  let edificio_C = new Edificio("San Clemente", "s/n", 15705);
+  /* Construido nuevo edificio en calle: San Clemente, nº: s/n, CP: 15705. */
 
-// Método modificar el número del edificio
-Edificio.prototype.modificarNumero = function(nuevoNumero) {
-  this.numero = nuevoNumero;
-  console.log(`El nuevo numero es: ${nuevoNumero}.`);
-};
+  document.write(`<p>${edificio_A.imprimeCodigoPostal()}</p>`);
+  //El código postal del edificio A es: 15706.
+  document.write(`<p>${edificio_C.imprimeCalle()}</p>`);
+  //La calle del edificio C es: San Clemente.
+  document.write(
+    `El edificio está situado en la calle ${edificio_B.calle} número ${edificio_B.numero}</p>`
+  );
+  //El edificio B está situado en la calle Camino Caneiro número 29.
 
-// Método modificar el nombre de la calle 
-Edificio.prototype.modificarCalle = function(nuevaCalle) {
-  this.calle = nuevaCalle;
-  console.log(`La nueva calle es: ${nuevaCalle}.`);
-};
+  //Agregamos 2 plantas y 3 puertas por planta al edificio A
+  edificio_A.agregarPlantasYPuertas(2, 3);
 
-// Método modificar el código postal
-Edificio.prototype.modificarCodigoPostal = function(nuevoCodigo) {
-  this.codigoPostal = nuevoCodigo;
-  console.log(`El nuevo código postal es:  ${nuevoCodigo}.`);
-};
+  //Agregamos 4 propietarios al edificio A
+  edificio_A.agregarPropietario("Jose Antonio Lopez", 1, 1);
+  //Jose Antonio Lopez es ahora el propietario de la puerta 1 de la planta 1.
+  edificio_A.agregarPropietario("Luisa Martinez", 1, 2);
+  //Luisa Martinez es ahora el propietario de la puerta 2 de la planta 1.
+  edificio_A.agregarPropietario("Marta Castellón", 1, 3);
+  //Marta Castellón es ahora el propietario de la puerta 3 de la planta 1.
+  edificio_A.agregarPropietario("Antonio Pereira", 2, 2);
+  //Antonio Pereira es ahora el propietario de la puerta 2 de la planta 2.
 
-// Método imprimir la calle
-Edificio.prototype.imprimeCalle = function() {
-  console.log(`Calle del edificio: ${this.calle}`);
-};
+  //Listado de propietarios del edificio calle García Prieto número 58
+  edificio_A.imprimePlantas();
+  /*
+  Propietario del piso 1 de la planta 1: Jose Antonio Lopez.
+  Propietario del piso 2 de la planta 1: Luisa Martinez.
+  Propietario del piso 3 de la planta 1: Marta Castellón.
+  Propietario del piso 1 de la planta 2:
+  Propietario del piso 2 de la planta 2: Antonio Pereira.
+  Propietario del piso 3 de la planta 2:
+  */
 
-// Método imprimir el número del edificio
-Edificio.prototype.imprimeNumero = function() {
-  console.log(`Número del edificio: ${this.numero}`);
-};
+  //Agregamos 1 planta más al edificio A...!!!!(ENTIENDO QUE CON 3 PUERTAS TAMBIÉN)!!!!
+  edificio_A.agregarPlantasYPuertas(1, 3);
+  //Agregamos 1 propietario más al edificio A planta 3, puerta 2...
+  edificio_A.agregarPropietario("Pedro Meijide", 3, 2);
+  //Pedro Meijide es ahora el propietario de la puerta 2 de la planta 3.
 
-// Método imprimir el código postal
-Edificio.prototype.imprimeCodigoPostal = function() {
-  console.log(`Código postal del edificio: ${this.codigoPostal}`);
-};
-
-// Método agregar  propietario
-Edificio.prototype.agregarPropietario = function(nombre, planta, puerta) {
-  if (planta >= 0 && planta < this.plantas.length && puerta >= 0 && puerta < this.plantas[planta].puertas.length) {
-    this.plantas[planta].puertas[puerta].propietario = nombre;
-    console.log(`${nombre} es ahora el propietario de la puerta ${puerta + 1} de la planta ${planta + 1}.`);
-  } else {
-    console.log("No existe.");
-  }
-};
-
-// Método imprimir los propietarios
-Edificio.prototype.imprimePlantas = function() {
-  console.log(`Lista de propietarios del edificio calle ${this.calle} número ${this.numero}\n`);
-
-  this.plantas.forEach((planta, numPlanta) => {
-    planta.puertas.forEach((puerta, numPuerta) => {
-      console.log(`Propietario del piso ${numPuerta + 1} de la planta ${numPlanta + 1}: ${puerta.propietario || "Sin propietario"}.`);
-    });
-  });
-
-  console.log(); 
-};
-
-// Creamos edificios 
-const edificioA = new Edificio("Garcia Prieto", 58, "15706");
-const edificioB = new Edificio("Camino Caneiro", 29, "32004");
-const edificioC = new Edificio("San Clemente", "s/n", "15705");
-
-// Acceder y mostrar información específica de los edificios
-console.log(`El código postal del edificio A es: ${edificioA.codigoPostal}.`);
-console.log(`La calle del edificio C es: ${edificioC.calle}.`);
-console.log(`El edificio B está situado en la calle ${edificioB.calle} número ${edificioB.numero}.`);
-
-// Agregamos plantas y puertas al edificio A
-edificioA.agregarPlantasYPuertas(2, 3);
-
-// Agregamos propietarios al edificio A
-edificioA.agregarPropietario("Jose Antonio Lopez", 0, 0);
-edificioA.agregarPropietario("Luisa Martinez", 0, 1);
-edificioA.agregarPropietario("Marta Castellón", 0, 2);
-edificioA.agregarPropietario("Antonio Pereira", 1, 1);
-
-// Imprimimos propietarios del edificio A
-edificioA.imprimePlantas();
-
-// Agregamos una planta más al edificio A
-edificioA.agregarPlantasYPuertas(1, 3);
-
-// Agregamos un propietario más al edificio A en planta 3, puerta 2
-edificioA.agregarPropietario("Pedro Meijide", 2, 1);
-
-// Imprimimos propietarios actualizados del edificio A
-edificioA.imprimePlantas();
-
+  //Listado de propietarios del edificio calle García Prieto número 58
+  edificio_A.imprimePlantas();
+  /*
+  Propietario del piso 1 de la planta 1: Jose Antonio Lopez.
+  Propietario del piso 2 de la planta 1: Luisa Martinez.
+  Propietario del piso 3 de la planta 1: Marta Castellón.
+  Propietario del piso 1 de la planta 2:
+  Propietario del piso 2 de la planta 2:
+  Propietario del piso 1 de la planta 3:
+  Propietario del piso 2 de la planta 3: Pedro Meijide.
+  */
+  document.close();
+}
