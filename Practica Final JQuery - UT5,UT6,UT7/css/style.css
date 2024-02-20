@@ -1,65 +1,74 @@
-body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4; /* Fondo de la página */
-  }
-  .error{
-    
-    background-color: salmon;
-    color: white;
-    display: block;
-  }
-  
-  fieldset {
-    background: #66cccc;
-    width: 350px;
-    border: thick solid #306;
-    padding: 20px;
-    border-radius: 10px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  input,
-  select {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-    margin-bottom: 10px;
-  }
-  
-  legend {
-    border: none;
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #306;
-  }
-  
-  #errores {
-    background: #ff6633;
-    color: white;
-  }
-  
-  #intentos {
-    background: #ccff33;
-    color: #306;
-  }
-  
-  .error {
-    border: solid 2px #ff0000;
-  }
-  
-  #limpiar,
-  #enviar {
-    width: auto;
-    padding: 10px;
-    margin-right: 10px;
-  }
-  
+body{
+  background-color: rgb(34, 28, 82);
+}
+fieldset {
+  border: 2px solid #666; /* Cambio a un color de borde más oscuro */
+  border-radius: 10px;
+  padding: 20px;
+  width: 90%;
+  margin: 20px auto;
+  background-color: #333; /* Cambio a un color de fondo más oscuro */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Ajuste en la sombra para mayor contraste */
+}
+
+legend {
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #fff; /* Cambio a texto blanco para mayor contraste */
+}
+
+.column {
+  display: flex;
+}
+
+.form-group {
+  margin-right: 15px;
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 16px;
+  color: #ddd; /* Cambio a un tono más claro para mejor legibilidad */
+  margin-bottom: 15px;
+}
+
+.form-group input,
+.form-group select {
+  width: calc(100% - 10px);
+  padding: 8px;
+  border: 1px solid #666; /* Cambio a un color de borde más oscuro */
+  border-radius: 5px;
+  font-size: 14px;
+  background-color: #444; /* Cambio a un color de fondo más oscuro */
+  color: #fff; /* Cambio a texto blanco para mayor contraste */
+}
+
+.button-group {
+  margin-top: 20px;
+}
+
+.button-group input[type="reset"],
+.button-group input[type="submit"] {
+  margin-top: 15px;
+  padding: 10px 20px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff; /* Cambio a un color azul */
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button-group input[type="reset"]:hover,
+.button-group input[type="submit"]:hover {
+  background-color: #0056b3; /* Cambio a un tono más oscuro de azul al pasar el ratón */
+}
+
+#errores{
+  width: 100%;
+  margin-top: 10px;
+  color: #f44336;
+}
