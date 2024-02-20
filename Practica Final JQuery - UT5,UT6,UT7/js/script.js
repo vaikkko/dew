@@ -6,7 +6,7 @@ $(function () {
   let selectProv = $("#provincia");
   let selectMuni = $("#municipio");
 
-  // Obtenemos los dato de las provincias del fichero "provincias.php" y convierto la respuesta en formato JSON.
+  // Obtenemos los dato de las provincias del fichero "provincias.php", convierto la respuesta en formato JSON y cambiamos el valor de la provincia al seleccionado
   fetch("provincias.php")
     .then((response) => response.json())
     .then((data) => {
@@ -22,7 +22,7 @@ $(function () {
     getMunicipio(numProvincia);
   });
 
-  // Obtenemos los municipios del "municipios.php", convertimos igual que antes la respuestaa formato JSON
+  // Obtenemos los municipios del "municipios.php", convertimos igual que antes la respuestaa formato JSON y cambiamos el valor al seleccionado.
   function getMunicipio(numProvincia) {
     fetch("municipios.php", {
       method: "POST",
@@ -160,7 +160,8 @@ $(function () {
     const value = $("#fecha").val();
     const pat =
       /^(?:(?:(?:0?[1-9]|1\d|2[0-8])\/(?:0?[1-9]|1[0-2])|(?:29|30)\/(?:0?[13-9]|1[0-2])|31\/(?:0?[13578]|1[02]))\/(?:0{2,3}[1-9]|0{1,2}[1-9]\d|0?[1-9]\d{2}|[1-9]\d{3})|29\/0?2\/(?:\d{1,2}(?:0[48]|[2468][048]|[13579][26])|(?:0?[48]|[13579][26]|[2468][048])00))$/;
-
+    // Encontré esta expresión regular que admite fechas de años bisiestos.
+    
     if (value.length === 0) {
       $("#errores").html("El campo Fecha es obligatorio");
     } else if (!pat.test(value)) {
@@ -185,11 +186,10 @@ $(function () {
     }
   });
 
-  // Mediante el contador comprobamos que todo funcione bien
   $("#formulario").submit(function (e) {
     e.preventDefault();
 
-    // Verificar si hay campos vacíos
+    // Verificamos si hay campos vacíos
     let camposVacios = $("input[type='text']").filter(function () {
       return $(this).val().trim() === "";
     }).length;
@@ -200,6 +200,7 @@ $(function () {
       );
     } else {
       if ($("#condiciones").prop("checked")) {
+          // Mediante el contador comprobamos que todo funcione bien
         if (contador === 10) {
           var eleccion = confirm(
             "¿Estas seguro de que quieres enviar los datos?"
