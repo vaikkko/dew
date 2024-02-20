@@ -2,9 +2,11 @@ $(function () {
   // Añadimos un contador a 0 para luego validar mas tarde.
   let contador = 0;
 
+  // Seleccionamos los elementos del DOM.
   let selectProv = $("#provincia");
   let selectMuni = $("#municipio");
 
+  // Obtenemos los dato de las provincias del fichero "provincias.php" y convierto la respuesta en formato JSON.
   fetch("provincias.php")
     .then((response) => response.json())
     .then((data) => {
@@ -16,17 +18,18 @@ $(function () {
     });
 
   selectProv.on("change", () => {
-    let provinceCode = selectProv.val();
-    getMunicipio(provinceCode);
+    let numProvincia = selectProv.val();
+    getMunicipio(numProvincia);
   });
 
-  function getMunicipio(provinceCode) {
+  // Obtenemos los municipios del "municipios.php", convertimos igual que antes la respuestaa formato JSON
+  function getMunicipio(numProvincia) {
     fetch("municipios.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
-      body: `provincia=${provinceCode}`,
+      body: `provincia=${numProvincia}`,
     })
       .then((response) => response.json())
       .then((data) => {
@@ -192,7 +195,9 @@ $(function () {
     }).length;
 
     if (camposVacios > 0) {
-      alert("Hay campos vacíos en el formulario. Por favor, complete todos los campos.");
+      alert(
+        "Hay campos vacíos en el formulario. Por favor, complete todos los campos."
+      );
     } else {
       if ($("#condiciones").prop("checked")) {
         if (contador === 10) {
