@@ -2,6 +2,43 @@ $(function () {
   // Añadimos un contador a 0 para luego validar mas tarde.
   let contador = 0;
 
+  let selectProv = $("#provincia");
+  let selectMuni = $("#municipio");
+
+  fetch("provincias.php")
+    .then((response) => response.json())
+    .then((data) => {
+      Object.keys(data).forEach((key) => {
+        let value = data[key];
+        let option = $("<option>").attr("value", key).text(value);
+        selectProv.append(option);
+      });
+    });
+
+  selectProv.on("change", () => {
+    let provinceCode = selectProv.val();
+    getMunicipio(provinceCode);
+  });
+
+  function getMunicipio(provinceCode) {
+    fetch("municipios.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: `provincia=${provinceCode}`,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        selectMuni.html("");
+        Object.keys(data).forEach((key) => {
+          let value = data[key];
+          let option = $("<option>").attr("value", key).text(value);
+          selectMuni.append(option);
+        });
+      });
+  }
+
   // Validamos el nombre
   $("#nombre").blur(function () {
     const value = $("#nombre").val().trim();
@@ -28,8 +65,8 @@ $(function () {
 
   // Validamos el DNI:
   $("#dni").blur(function () {
-    const value = $("#dni").val().toUpperCase(); 
-    const pat = /^(\d{8})-?([A-Za-z])$/; 
+    const value = $("#dni").val().toUpperCase();
+    const pat = /^(\d{8})-?([A-Za-z])$/;
     if (value.length === 0) {
       console.log("El número NIF es obligatorio");
       $("#errores").html("El campo NIF es obligatorio");
@@ -38,8 +75,8 @@ $(function () {
         "No es un número NIF válido, debe tener el formato 12345678-A."
       );
     } else {
-      const match = value.match(pat); 
-      const numeroDNI = match[1]; 
+      const match = value.match(pat);
+      const numeroDNI = match[1];
       const letraDNI = match[2];
 
       const letras = "TRWAGMYFPDXBNJZSQVHLCKE";
@@ -104,6 +141,17 @@ $(function () {
     }
   });
 
+  // Validamos el Municipio
+  $("#municipio").blur(function () {
+    const value = $("#municipio").val();
+    if (value === "0") {
+      $("#errores").html("Seleccionar un Municipio es obligatorio.");
+    } else {
+      $("#errores").html("");
+      contador++;
+    }
+  });
+
   // Validamos la fecha:
   $("#fecha").blur(function () {
     const value = $("#fecha").val();
@@ -134,25 +182,34 @@ $(function () {
     }
   });
 
-
   // Mediante el contador comprobamos que todo funcione bien
   $("#formulario").submit(function (e) {
     e.preventDefault();
-    if ($("#condiciones").prop("checked")) {
-      if (contador === 9) {
-        var eleccion = confirm(
-          "¿Estas seguro de que quieres enviar los datos?"
-        );
-        if (eleccion === true) {
-          alert("Has enviado los datos correctamente");
-        } else {
-          alert("Has cancelado el envio");
-        }
-      }
+
+    // Verificar si hay campos vacíos
+    let camposVacios = $("input[type='text']").filter(function () {
+      return $(this).val().trim() === "";
+    }).length;
+
+    if (camposVacios > 0) {
+      alert("Hay campos vacíos en el formulario. Por favor, complete todos los campos.");
     } else {
-      $("#errores").html(
-        "Debes aceptar los términos y condiciones para enviar el formulario."
-      );
+      if ($("#condiciones").prop("checked")) {
+        if (contador === 10) {
+          var eleccion = confirm(
+            "¿Estas seguro de que quieres enviar los datos?"
+          );
+          if (eleccion === true) {
+            alert("Has enviado los datos correctamente");
+          } else {
+            alert("Has cancelado el envio");
+          }
+        }
+      } else {
+        $("#errores").html(
+          "Debes aceptar los términos y condiciones para enviar el formulario."
+        );
+      }
     }
   });
 
