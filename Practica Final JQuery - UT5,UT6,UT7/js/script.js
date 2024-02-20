@@ -22,7 +22,7 @@ $(function () {
     getMunicipio(numProvincia);
   });
 
-  // Obtenemos los municipios del "municipios.php", convertimos igual que antes la respuestaa formato JSON y cambiamos el valor al seleccionado.
+  // Obtenemos los municipios del "municipios.php" pasando el numero de Provincia y se actualiza el elemento.
   function getMunicipio(numProvincia) {
     fetch("municipios.php", {
       method: "POST",
