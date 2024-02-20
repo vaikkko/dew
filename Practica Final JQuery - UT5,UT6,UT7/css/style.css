@@ -2,20 +2,19 @@ body {
   background-color: rgb(34, 28, 82);
 }
 fieldset {
-  border: 2px solid #666; /* Cambio a un color de borde más oscuro */
-  border-radius: 10px;
+  border: 2px solid #666; 
   padding: 20px;
   width: 90%;
   margin: 20px auto;
-  background-color: #333; /* Cambio a un color de fondo más oscuro */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Ajuste en la sombra para mayor contraste */
+  background-color: #333; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); 
 }
 
 legend {
   font-weight: bold;
   font-size: 24px;
   margin-bottom: 20px;
-  color: #fff; /* Cambio a texto blanco para mayor contraste */
+  color: #fff; 
 }
 
 .column {
@@ -30,7 +29,7 @@ legend {
 .form-group label {
   display: block;
   font-size: 16px;
-  color: #ddd; /* Cambio a un tono más claro para mejor legibilidad */
+  color: #ddd; 
   margin-bottom: 15px;
 }
 
@@ -38,11 +37,11 @@ legend {
 .form-group select {
   width: calc(100% - 10px);
   padding: 8px;
-  border: 1px solid #666; /* Cambio a un color de borde más oscuro */
+  border: 1px solid #666;
   border-radius: 5px;
   font-size: 14px;
-  background-color: #444; /* Cambio a un color de fondo más oscuro */
-  color: #fff; /* Cambio a texto blanco para mayor contraste */
+  background-color: #444; 
+  color: #fff; 
 }
 
 .button-group {
@@ -56,7 +55,7 @@ legend {
   margin-right: 10px;
   border: none;
   border-radius: 5px;
-  background-color: #007bff; /* Cambio a un color azul */
+  background-color: #007bff; 
   color: #fff;
   font-size: 16px;
   cursor: pointer;
@@ -64,7 +63,7 @@ legend {
 
 .button-group input[type="reset"]:hover,
 .button-group input[type="submit"]:hover {
-  background-color: #0056b3; /* Cambio a un tono más oscuro de azul al pasar el ratón */
+  background-color: #0056b3; 
 }
 
 #municipioLabel {
