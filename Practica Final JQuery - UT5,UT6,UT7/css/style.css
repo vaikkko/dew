@@ -1,4 +1,4 @@
-body{
+body {
   background-color: rgb(34, 28, 82);
 }
 fieldset {
@@ -67,7 +67,11 @@ legend {
   background-color: #0056b3; /* Cambio a un tono más oscuro de azul al pasar el ratón */
 }
 
-#errores{
+#municipioLabel {
+  margin-top: 15px;
+}
+
+#errores {
   width: 100%;
   margin-top: 10px;
   color: #f44336;
